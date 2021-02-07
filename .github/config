@@ -35,6 +35,8 @@ EOF
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
+sed -i '/+libmount/d' feeds/packages/utils/btrfs-progs/Makefile
+
 git apply ../.github/patches/{0001*,0002*}.patch --directory=feeds/luci
 (
     cd feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status
